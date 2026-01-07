@@ -1,0 +1,366 @@
+<!doctype html>
+<html lang="ja">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>投稿主の紹介</title>
+  <meta name="description" content="投稿主の紹介ページ。内容はシンプルに、購入前の不安を最小化するための案内を掲載しています。" />
+  <style>
+    :root{
+      --bg:#ffffff;
+      --text:#0f172a;
+      --muted:#475569;
+      --border:#e2e8f0;
+      --soft:#f8fafc;
+      --accent:#0b63f6;
+      --radius:16px;
+      --shadow:0 10px 30px rgba(15,23,42,.08);
+      --max:860px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, "Segoe UI", Roboto, "Hiragino Sans", "Noto Sans JP", "Yu Gothic", "Meiryo", Arial, sans-serif;
+      color:var(--text);
+      background:linear-gradient(180deg, #ffffff 0%, #ffffff 50%, #f8fafc 100%);
+      line-height:1.7;
+    }
+    a{color:var(--accent); text-decoration:none}
+    a:hover{text-decoration:underline}
+    .wrap{max-width:var(--max); margin:0 auto; padding:28px 18px 72px}
+    header{
+      padding:26px 22px;
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:var(--bg);
+      box-shadow:var(--shadow);
+    }
+    .kicker{
+      display:inline-flex;
+      gap:10px;
+      align-items:center;
+      font-size:12px;
+      color:var(--muted);
+      letter-spacing:.06em;
+      text-transform:uppercase;
+      padding:6px 10px;
+      background:var(--soft);
+      border:1px solid var(--border);
+      border-radius:999px;
+    }
+    h1{
+      margin:14px 0 6px;
+      font-size:28px;
+      line-height:1.25;
+      letter-spacing:-.02em;
+    }
+    .lead{margin:0; color:var(--muted); font-size:15px}
+    main{margin-top:18px}
+    .grid{
+      display:grid;
+      grid-template-columns:1fr;
+      gap:14px;
+    }
+    @media (min-width:900px){
+      .grid{grid-template-columns:1.15fr .85fr; gap:16px; align-items:start}
+    }
+    .card{
+      border:1px solid var(--border);
+      border-radius:var(--radius);
+      background:var(--bg);
+      padding:18px 18px;
+      box-shadow:0 12px 34px rgba(15,23,42,.06);
+    }
+    .card h2{
+      margin:0 0 10px;
+      font-size:18px;
+      letter-spacing:-.01em;
+    }
+    .card p{margin:10px 0}
+    .muted{color:var(--muted)}
+    .hr{
+      height:1px;
+      background:var(--border);
+      margin:14px 0;
+    }
+    .pill{
+      display:inline-flex;
+      align-items:center;
+      gap:8px;
+      padding:8px 10px;
+      border-radius:999px;
+      border:1px solid var(--border);
+      background:var(--soft);
+      color:var(--muted);
+      font-size:13px;
+      margin:6px 8px 0 0;
+      white-space:nowrap;
+    }
+    .list{
+      margin:10px 0 0;
+      padding:0 0 0 18px;
+    }
+    .list li{margin:8px 0}
+    .quote{
+      margin:12px 0 0;
+      padding:14px 14px;
+      border-radius:14px;
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, #ffffff 0%, #f8fafc 100%);
+    }
+    .quote p{margin:0}
+    .strong{font-weight:700}
+    .small{font-size:13px}
+    .cta{
+      display:flex;
+      flex-wrap:wrap;
+      gap:10px;
+      margin-top:12px;
+    }
+    .btn{
+      display:inline-flex;
+      align-items:center;
+      justify-content:center;
+      gap:10px;
+      border-radius:12px;
+      padding:10px 12px;
+      border:1px solid var(--border);
+      background:var(--bg);
+      color:var(--text);
+      font-weight:600;
+      font-size:14px;
+    }
+    .btn.primary{
+      border-color:rgba(11,99,246,.18);
+      background:linear-gradient(180deg, rgba(11,99,246,.10) 0%, rgba(11,99,246,.06) 100%);
+    }
+    .btn:hover{transform:translateY(-1px)}
+    .note{
+      border-left:4px solid rgba(11,99,246,.35);
+      padding:10px 12px;
+      background:var(--soft);
+      border-radius:12px;
+      margin-top:12px;
+    }
+    details{
+      border:1px solid var(--border);
+      border-radius:14px;
+      background:var(--bg);
+      padding:12px 12px;
+      margin-top:10px;
+    }
+    summary{
+      cursor:pointer;
+      font-weight:700;
+      list-style:none;
+      outline:none;
+    }
+    summary::-webkit-details-marker{display:none}
+    .footer{
+      margin-top:18px;
+      color:var(--muted);
+      font-size:12px;
+      text-align:center;
+    }
+    .mono{
+      font-family: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
+      font-size:12px;
+      color:var(--muted);
+      background:var(--soft);
+      border:1px solid var(--border);
+      padding:6px 8px;
+      border-radius:10px;
+      display:inline-block;
+    }
+  </style>
+</head>
+
+<body>
+  <div class="wrap">
+    <header>
+      <div class="kicker">Author / Seller</div>
+      <h1>投稿主の紹介</h1>
+      <p class="lead">
+        情報を足して信頼を作るのではなく、<span class="strong">必要な情報だけ</span>を、見やすく置きます。
+        購入前に不安が残らないことを最優先にしています。
+      </p>
+      <div class="cta">
+        <!-- ↓必要ならURL差し替え -->
+        <a class="btn primary" href="#anxiety">購入前の不安を潰す</a>
+        <a class="btn" href="#faq">よくある質問</a>
+        <a class="btn" href="#contact">問い合わせ</a>
+      </div>
+    </header>
+
+    <main class="grid">
+      <!-- Left: Main story -->
+      <section class="card" aria-labelledby="about">
+        <h2 id="about">私について</h2>
+        <p>
+          日本人です。アメリカにてAIの設計に携わった後、来日しました。
+        </p>
+        <p class="muted">
+          その他の経歴は記載しません。理由は単純で、書くほど「それっぽさ」が増え、
+          かえって判断を曇らせることがあるからです。
+        </p>
+
+        <div class="hr"></div>
+
+        <h2>私がしてきたこと</h2>
+        <p>
+          私は人生をかけ、<span class="strong">現実世界をプログラムにて完全表現する技術</span>を極めました。
+        </p>
+        <p class="muted">
+          ここで販売しているのは、その技術を「理解して使える形」に圧縮したものです。
+          誇張はしません。合う人にだけ、刺さります。
+        </p>
+
+        <div class="quote" role="note">
+          <p>
+            私の構造があなたの役に立てば、私の人生には価値があった。<br />
+            役に立たないのなら、私の人生には価値がなかった。<br />
+            それで、いいのではないか？
+          </p>
+        </div>
+
+        <div class="note small">
+          <span class="strong">重要：</span>
+          私を信じる必要はありません。<span class="strong">あなたにとって役に立つか</span>だけで判断してください。
+        </div>
+      </section>
+
+      <!-- Right: Trust & anxiety reducers -->
+      <aside class="card" aria-labelledby="anxiety">
+        <h2 id="anxiety">購入前の不安を最大サポート</h2>
+
+        <span class="pill">デジタル商品</span>
+        <span class="pill">自動配信</span>
+        <span class="pill">期限付きDL</span>
+        <span class="pill">回数制限</span>
+
+        <ul class="list">
+          <li>
+            <span class="strong">購入後すぐ</span>に、ダウンロード案内が<span class="strong">自動メール</span>で届きます。
+          </li>
+          <li>
+            ダウンロードは<span class="strong">期限（例：72時間）</span>と
+            <span class="strong">回数制限（例：5回未満）</span>があります。
+          </li>
+          <li>
+            途中でメールを削除しても困らないよう、再確認できる導線を用意します（※ショップ側仕様に依存）。
+          </li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>この商品が合う人 / 合わない人</h2>
+        <p class="muted small" style="margin-top:0">
+          ここは購入判断のためのチェックです。気持ちよく買わせるための文ではありません。
+        </p>
+        <ul class="list">
+          <li><span class="strong">合う：</span>短い情報から構造を拾って、自分で実装・応用できる</li>
+          <li><span class="strong">合わない：</span>長い講義・丁寧な伴走・網羅的な解説が欲しい</li>
+        </ul>
+
+        <div class="hr"></div>
+
+        <h2>購入判断を軽くするために</h2>
+        <ul class="list">
+          <li>中身は「少量」です（PDFは短く、音声も短い構成）。</li>
+          <li>だからこそ、読む・聴くコストは小さいです。</li>
+          <li>合わないと思ったら、買わない判断が最適です。</li>
+        </ul>
+
+        <div class="note small">
+          <span class="strong">安心の軸：</span>
+          「情報を盛らない」「合わない可能性を先に明示する」「購入後の受け取り手順を明確にする」
+        </div>
+      </aside>
+    </main>
+
+    <section class="card" id="faq" aria-labelledby="faqtitle" style="margin-top:14px">
+      <h2 id="faqtitle">よくある質問</h2>
+
+      <details>
+        <summary>Q. 何が届く？</summary>
+        <p class="muted">
+          商品ページに記載されたデジタルデータが届きます（例：PDF / 音声など）。
+          構成は「短く、実用に寄せた圧縮版」です。
+        </p>
+      </details>
+
+      <details>
+        <summary>Q. どうやって受け取る？</summary>
+        <p class="muted">
+          決済完了後、ダウンロード案内が自動メールで届きます。
+          メール内リンクから、期限内・回数制限内でダウンロードしてください。
+        </p>
+      </details>
+
+      <details>
+        <summary>Q. ダウンロードできなかったら？</summary>
+        <p class="muted">
+          まずは迷惑メールフォルダを確認してください。
+          それでも解決しない場合は、下の「問い合わせ」から連絡してください。
+          （購入確認が取れる範囲で、可能な対応をします）
+        </p>
+      </details>
+
+      <details>
+        <summary>Q. 返金はできる？</summary>
+        <p class="muted">
+          デジタル商品の性質上、原則として返金は難しいことが多いです。
+          返金条件は特商法ページに記載の内容が適用されます。
+        </p>
+      </details>
+
+      <details>
+        <summary>Q. なぜ経歴をあまり書かない？</summary>
+        <p class="muted">
+          経歴が「判断材料」ではなく「雰囲気」になった瞬間に、購入はブレます。
+          必要なのは、あなたにとって役に立つかどうかだけです。
+        </p>
+      </details>
+    </section>
+
+    <section class="card" id="contact" aria-labelledby="contacttitle" style="margin-top:14px">
+      <h2 id="contacttitle">問い合わせ</h2>
+      <p class="muted" style="margin-top:0">
+        購入前の質問・購入後の受け取り不具合は、ここから連絡してください。
+      </p>
+
+      <!-- ↓ここを実際の導線に差し替え -->
+      <ul class="list">
+        <li>
+          問い合わせフォーム：
+          <span class="mono">/contact</span>
+          （または Shopify のお問い合わせページURL）
+        </li>
+        <li>
+          特商法ページ：
+          <span class="mono">/legal</span>
+          （あなたの特商法ページURLに差し替え）
+        </li>
+      </ul>
+
+      <div class="note small">
+        <span class="strong">お願い：</span>
+        「注文メールが届かない」「DLできない」場合は、購入時メールアドレスと購入日時を添えてください。
+        対応が速くなります。
+      </div>
+    </section>
+
+    <div class="footer">
+      <p style="margin:16px 0 0">
+        © <span id="y"></span> 投稿主
+      </p>
+    </div>
+  </div>
+
+  <script>
+    // 年表示（任意）
+    document.getElementById("y").textContent = new Date().getFullYear();
+  </script>
+</body>
+</html>
