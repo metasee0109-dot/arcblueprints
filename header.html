@@ -1,0 +1,59 @@
+<!-- site header -->
+<header class="site-header">
+  <div class="wrap">
+    <nav class="nav">
+      <a class="nav-item nav-home" href="index.html">Home</a>
+      <a class="nav-item" href="toukounushi.html">投稿主について</a>
+      <!--
+      追加リンク用（最大7想定）
+      <a class="nav-item" href="xxx.html">Link</a>
+      -->
+    </nav>
+  </div>
+</header>
+
+<style>
+  /* header base */
+  .site-header {
+    border-bottom: 1px solid #eee;
+    background: #fff;
+  }
+
+  .site-header .wrap {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 14px 20px;
+  }
+
+  /* navigation */
+  .nav {
+    display: flex;
+    gap: 18px;
+    align-items: center;
+    flex-wrap: wrap;
+  }
+
+  .nav-item {
+    text-decoration: none;
+    font-weight: 600;
+    font-size: 14px;
+    color: #111;
+    opacity: 0.9;
+  }
+
+  .nav-item:hover {
+    opacity: 1;
+  }
+
+  /* ホームだけ軽く識別（過度な主張はしない） */
+  .nav-home {
+    letter-spacing: .2px;
+  }
+
+  /* mobile */
+  @media (max-width: 640px) {
+    .nav {
+      gap: 14px;
+    }
+  }
+</style>
