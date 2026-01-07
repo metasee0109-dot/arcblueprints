@@ -1,5 +1,20 @@
 <!doctype html>
 <html lang="ja">
+<body>
+  <div id="header"></div>
+
+  <script>
+    fetch("header.html")
+      .then(res => res.text())
+      .then(html => {
+        document.getElementById("header").innerHTML = html;
+      });
+  </script>
+
+  <!-- 以下、各ページ固有の中身 -->
+</body>
+
+  
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width,initial-scale=1" />
