@@ -46,7 +46,51 @@
     .muted { font-size: 12px; opacity:.7; margin-top: 6px; }
     footer { border-top: 1px solid #eee; padding: 16px 20px; font-size: 12px; opacity: .75; }
     .mono { font-family: ui-monospace, SFMono-Regular, Menlo, monospace; }
+    /* 対応不安例ボタン */
+.anx-btn {
+  margin-top: 8px;
+  padding: 6px 12px;
+  font-size: 0.85rem;          /* ← 文字サイズ小さめ */
+  font-weight: 600;
+  border-radius: 999px;
+  border: 1px solid #000;
+  background: #fff;
+  cursor: pointer;
+  transition: transform .08s ease, box-shadow .08s ease, opacity .08s;
+}
+
+/* ホバー：クリックできる感 */
+.anx-btn:hover {
+  box-shadow: 0 2px 0 #000;
+  transform: translateY(-1px);
+}
+
+/* 押下感 */
+.anx-btn:active {
+  box-shadow: none;
+  transform: translateY(0);
+  opacity: 0.8;
+}
+
+/* 開いてる時の状態 */
+.anx-btn.is-open {
+  background: #f2f2f2;
+}
+
+/* 中身 */
+.anx-body {
+  margin-top: 10px;
+  padding: 10px 12px;
+  border-left: 2px solid #000;
+  font-size: 0.9rem;
+}
+
+.hidden {
+  display: none;
+}
+
   </style>
+  
 </head>
 <body>
   <header>
@@ -82,19 +126,42 @@
   <h3 class="sname">別記</h3>
   <p class="sdesc">原理は同じだよ。大丈夫。高知能の人、安心して。</p>
 
-  <details class="toggle">
-    <summary class="togglebtn">対応不安例</summary>
-    <div class="togglebody">
-      <ul class="ssdesc">
-        <li>大事な試験に受かるか不安</li>
-        <li>大事なプレゼンに成功するか不安</li>
-        <li>分からないけど怖い</li>
-        <li>どうしたらいいか分からない</li>
-        <li>次が見えない</li>
-        <li>未来が見えない</li>
-      </ul>
-    </div>
-  </details>
+  <!-- 対応不安例：トグルボタン -->
+  <button
+    class="anx-btn"
+    type="button"
+    data-toggle="#anx000"
+    aria-expanded="false">
+    対応不安例を表示
+  </button>
+
+  <div id="anx000" class="anx-body hidden">
+    <ul class="ssdesc">
+      <li>大事な試験に受かるか不安</li>
+      <li>大事なプレゼンに成功するか不安</li>
+      <li>分からないけど怖い</li>
+      <li>どうしたらいいか分からない</li>
+      <li>次が見えない</li>
+      <li>未来が見えない</li>
+    </ul>
+  </div>
+
+  <div class="price">¥6,100</div>
+
+  <div class="btnrow">
+    <a
+      class="btn"
+      href="https://arcblue.myshopify.com/products/000"
+      target="_blank"
+      rel="noopener">
+      購入ページへ
+    </a>
+  </div>
+
+  <div class="muted">
+    画像1枚 + 音声jp(約11分) + 音声＿高知能不安（7分） / 非更新
+  </div>
+</article>
 
   <div class="price">¥6,100</div>
 
