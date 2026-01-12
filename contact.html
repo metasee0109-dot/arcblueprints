@@ -44,7 +44,6 @@
 </head>
 
 <body>
-  <!-- 共通ヘッダー（あなたの方法1：header.html fetch） -->
   <div id="header"></div>
   <script>
     fetch("header.html")
@@ -58,15 +57,9 @@
       <p>購入前の確認・購入後の受け取りに関する連絡のみ。</p>
 
       <section class="card">
-        <form action="ACTION_URL" method="POST">
-          <!-- 迷惑送信対策（ハニーポット） -->
+        <!-- ★ここが重要：Workerへ投げる -->
+        <form action="https://dl.arcbluep.com/contact" method="POST">
           <input type="text" name="_gotcha" style="display:none" tabindex="-1" autocomplete="off">
-
-          <!-- 任意：件名（届くメールの見やすさが上がる） -->
-          <input type="hidden" name="_subject" value="問い合わせ（サイト）">
-
-          <!-- 任意：送信後の遷移先（作るなら thankyou.html） -->
-          <!-- <input type="hidden" name="_redirect" value="thankyou.html"> -->
 
           <div class="row">
             <div>
